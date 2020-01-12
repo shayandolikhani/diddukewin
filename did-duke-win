@@ -1,0 +1,41 @@
+#!/bin/bash
+# Author: Shayan Dolikhani
+# PID: 730191655
+# I pledge the UNC and COMP290 Honor Code.
+
+if [ "${1}" = "--help" ]
+then
+    echo "Usage: did-duke-win [test-url]"
+    exit 1
+fi
+
+if [ -z "${1}" ]
+then
+    curl -s https://diddukewin.com | grep -q NO
+    if [ "${?}" = 0 ]
+    then
+        echo "No!"
+        exit 0
+    else
+        curl -s https://diddukewin.com | grep -q YES
+        if [ "${?}" = 0 ]
+        then
+            echo "Yes."
+            exit 0
+        fi
+    fi
+fi
+
+curl -s "${1}" | grep -q NO
+if [ "${?}" = 0 ]
+    then
+        echo "No!"
+        exit 0
+else
+    curl -s "${1}" | grep -q YES
+    if [ "${?}" = 0 ]
+    then
+        echo "Yes."
+        exit 0
+    fi
+fi
