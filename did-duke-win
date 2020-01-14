@@ -1,7 +1,4 @@
 #!/bin/bash
-# Author: Shayan Dolikhani
-# PID: 730191655
-# I pledge the UNC and COMP290 Honor Code.
 
 if [ "${1}" = "--help" ]
 then
